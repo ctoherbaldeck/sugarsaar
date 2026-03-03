@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sugar Saar – Diabetes से आज़ादी</title>
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Poppins:wght@300;400;600;700;900&family=Noto+Sans+Devanagari:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --saffron: #FF6B00;
+    --deep-green: #1A4D2E;
+    --gold: #D4A017;
+    --cream: #FFF8ED;
+    --brown: #5C2E00;
+    --red: #C0392B;
+    --light-green: #E8F5E9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif;
+    background: var(--cream);
+    color: #1a1a1a;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1A4D2E 0%, #0d2e1a 60%, #2d1a00 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px 80px;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--gold), #f5c842);
+    color: var(--brown);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border-radius: 30px;
+    margin-bottom: 28px;
+    animation: fadeDown 0.8s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Yatra One', cursive;
+    font-size: clamp(3rem, 10vw, 6.5rem);
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.5);
+    animation: fadeDown 0.9s 0.1s ease both;
+  }
+
+  .hero h1 span { color: var(--gold); }
+
+  .hero-sub {
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 14px;
+    font-weight: 300;
+    animation: fadeDown 1s 0.2s ease both;
+  }
+
+  .hero-tagline {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 40px;
+    animation: fadeDown 1s 0.3s ease both;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--saffron), #e84e00);
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 18px 50px;
+    border-radius: 60px;
+    text-decoration: none;
+    box-shadow: 0 8px 30px rgba(255,107,0,0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: fadeUp 1s 0.4s ease both;
+    cursor: pointer;
+    border: none;
+  }
+
+  .hero-cta:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 14px 40px rgba(255,107,0,0.6);
+  }
+
+  .hero-note {
+    margin-top: 18px;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.55);
+    animation: fadeUp 1s 0.5s ease both;
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    color: rgba(255,255,255,0.4);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    animation: bounce 2s infinite;
+  }
+
+  .scroll-indicator::after {
+    content: '↓';
+    font-size: 1.3rem;
+    color: var(--gold);
+  }
+
+  /* floating leaves */
+  .leaf {
+    position: absolute;
+    width: 60px; opacity: 0.07;
+    animation: float 8s ease-in-out infinite;
+    pointer-events: none;
+  }
+  .leaf:nth-child(1)  { top: 10%; left: 5%;  animation-delay: 0s; }
+  .leaf:nth-child(2)  { top: 30%; right: 8%; animation-delay: 2s; }
+  .leaf:nth-child(3)  { bottom: 20%; left: 3%; animation-delay: 4s; }
+  .leaf:nth-child(4)  { bottom: 10%; right: 5%; animation-delay: 1s; }
+
+  /* ── STRIP ── */
+  .strip {
+    background: linear-gradient(90deg, var(--saffron), var(--gold), var(--saffron));
+    padding: 14px 20px;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+    overflow: hidden;
+  }
+
+  .strip-inner {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 18s linear infinite;
+  }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 80px 20px; }
+
+  .container { max-width: 960px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--saffron);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Yatra One', cursive;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    color: var(--deep-green);
+    line-height: 1.25;
+    margin-bottom: 20px;
+  }
+
+  .section-title span { color: var(--saffron); }
+
+  .section-body {
+    font-size: 1.05rem;
+    color: #444;
+    line-height: 1.9;
+  }
+
+  /* ── ORIGIN STORY ── */
+  .origin {
+    background: #fff;
+  }
+
+  .origin-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .year-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--deep-green), #0d2e1a);
+    color: var(--gold);
+    font-family: 'Yatra One', cursive;
+    font-size: 2.2rem;
+    box-shadow: 0 12px 40px rgba(26,77,46,0.35);
+    margin-bottom: 30px;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .year-badge small { font-size: 0.75rem; color: rgba(255,255,255,0.6); font-family: 'Poppins', sans-serif; }
+
+  .origin-visual {
+    display: flex; flex-direction: column; align-items: center; gap: 20px;
+  }
+
+  .flag-stripe {
+    display: flex;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 100%;
+    height: 18px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+
+  .flag-stripe div { flex: 1; }
+  .flag-saffron { background: #FF9933; }
+  .flag-white   { background: #fff; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+  .flag-green   { background: #138808; }
+
+  .quote-box {
+    background: var(--light-green);
+    border-left: 4px solid var(--deep-green);
+    padding: 20px 24px;
+    border-radius: 0 12px 12px 0;
+    font-style: italic;
+    color: var(--brown);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-top: 20px;
+  }
+
+  /* ── INGREDIENTS ── */
+  .ingredients {
+    background: linear-gradient(160deg, #1A4D2E 0%, #0d3320 100%);
+    color: #fff;
+  }
+
+  .ingredients .section-title { color: #fff; }
+  .ingredients .section-label { color: var(--gold); }
+
+  .herb-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .herb-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 28px 20px;
+    text-align: center;
+    transition: transform 0.3s, background 0.3s;
+    backdrop-filter: blur(6px);
+  }
+
+  .herb-card:hover {
+    transform: translateY(-6px);
+    background: rgba(255,255,255,0.12);
+  }
+
+  .herb-icon { font-size: 2.4rem; margin-bottom: 12px; }
+
+  .herb-name {
+    font-family: 'Yatra One', cursive;
+    font-size: 1.1rem;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+
+  .herb-desc { font-size: 0.82rem; color: rgba(255,255,255,0.65); line-height: 1.6; }
+
+  /* ── HOW IT WORKS ── */
+  .how {
+    background: var(--cream);
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 50px;
+    position: relative;
+  }
+
+  .steps::before {
+    content: '';
+    position: absolute;
+    left: 32px;
+    top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--saffron), var(--deep-green));
+  }
+
+  .step {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    padding: 0 0 44px 0;
+  }
+
+  .step-num {
+    min-width: 64px; height: 64px;
+    background: linear-gradient(135deg, var(--saffron), #e84e00);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 1.3rem;
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(255,107,0,0.4);
+    position: relative; z-index: 1;
+    flex-shrink: 0;
+  }
+
+  .step-content h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--deep-green);
+    margin-bottom: 6px;
+  }
+
+  .step-content p { font-size: 0.95rem; color: #555; line-height: 1.7; }
+
+  /* ── SOCIAL PROOF ── */
+  .proof {
+    background: #fff;
+  }
+
+  .trust-row {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    margin: 40px 0;
+  }
+
+  .trust-item {
+    text-align: center;
+  }
+
+  .trust-num {
+    font-family: 'Yatra One', cursive;
+    font-size: 3rem;
+    color: var(--saffron);
+    line-height: 1;
+  }
+
+  .trust-label { font-size: 0.82rem; color: #777; margin-top: 4px; }
+
+  .testimonials {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .tcard {
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 28px 24px;
+    border: 1px solid #f0e6d3;
+    position: relative;
+  }
+
+  .tcard::before {
+    content: '"';
+    position: absolute;
+    top: 12px; left: 20px;
+    font-size: 4rem;
+    color: var(--gold);
+    opacity: 0.3;
+    font-family: Georgia, serif;
+    line-height: 1;
+  }
+
+  .tcard-text {
+    font-size: 0.92rem;
+    color: #444;
+    line-height: 1.75;
+    margin-bottom: 18px;
+    padding-top: 14px;
+  }
+
+  .tcard-author {
+    display: flex; align-items: center; gap: 12px;
+  }
+
+  .tcard-avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--deep-green), var(--saffron));
+    display: flex; align-items: center; justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  .tcard-name { font-weight: 700; font-size: 0.9rem; color: #222; }
+  .tcard-loc  { font-size: 0.75rem; color: #888; }
+
+  .stars { color: var(--gold); font-size: 0.85rem; margin-top: 2px; }
+
+  /* ── CELEBRITIES / TRUST ── */
+  .celeb-section {
+    background: linear-gradient(135deg, #FFF3E0, #FFF8ED);
+    text-align: center;
+    padding: 70px 20px;
+  }
+
+  .celeb-section .section-title { text-align: center; }
+  .celeb-section .section-label { text-align: center; }
+
+  .celeb-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 36px;
+  }
+
+  .celeb-badge {
+    background: #fff;
+    border: 2px solid var(--gold);
+    color: var(--brown);
+    padding: 10px 22px;
+    border-radius: 40px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    box-shadow: 0 4px 14px rgba(212,160,23,0.15);
+  }
+
+  /* ── CTA SECTION ── */
+  .cta-section {
+    background: linear-gradient(135deg, var(--saffron) 0%, #c94a00 100%);
+    text-align: center;
+    padding: 90px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M0 0h80v80H0z'/%3E%3Ccircle cx='40' cy='40' r='30'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .cta-section h2 {
+    font-family: 'Yatra One', cursive;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    color: #fff;
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .cta-section p {
+    color: rgba(255,255,255,0.88);
+    font-size: 1.1rem;
+    margin-bottom: 36px;
+    position: relative;
+  }
+
+  .cta-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: #fff;
+    color: var(--saffron);
+    font-size: 1.6rem;
+    font-weight: 900;
+    padding: 20px 48px;
+    border-radius: 60px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+    text-decoration: none;
+    transition: transform 0.2s;
+    position: relative;
+    letter-spacing: 1px;
+  }
+
+  .cta-phone:hover { transform: scale(1.04); }
+  .cta-phone .phone-icon { font-size: 1.8rem; animation: ring 1.5s infinite; }
+
+  .cta-note {
+    margin-top: 22px;
+    color: rgba(255,255,255,0.65);
+    font-size: 0.85rem;
+    position: relative;
+  }
+
+  /* ── WHY NOT MEDICAL STORE ── */
+  .exclusive {
+    background: var(--cream);
+  }
+
+  .exclusive-box {
+    background: linear-gradient(135deg, var(--deep-green), #1a3d24);
+    border-radius: 24px;
+    padding: 50px 40px;
+    color: #fff;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .exclusive-box h2 {
+    font-family: 'Yatra One', cursive;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .exclusive-box p { font-size: 0.97rem; color: rgba(255,255,255,0.8); line-height: 1.8; }
+
+  .exclusive-points {
+    display: flex; flex-direction: column; gap: 16px;
+  }
+
+  .exc-point {
+    display: flex; align-items: flex-start; gap: 14px;
+  }
+
+  .exc-icon {
+    min-width: 40px; height: 40px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+  }
+
+  .exc-text strong { display: block; font-size: 0.95rem; color: var(--gold); margin-bottom: 3px; }
+  .exc-text span   { font-size: 0.82rem; color: rgba(255,255,255,0.65); }
+
+  /* ── FAQ ── */
+  .faq { background: #fff; }
+
+  .faq-list { margin-top: 40px; display: flex; flex-direction: column; gap: 14px; }
+
+  .faq-item {
+    border: 1px solid #e8dcc8;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .faq-q {
+    width: 100%; text-align: left;
+    background: none; border: none; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--deep-green);
+    font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif;
+    transition: background 0.2s;
+  }
+
+  .faq-q:hover { background: var(--cream); }
+  .faq-arrow { font-size: 1.2rem; transition: transform 0.3s; color: var(--saffron); }
+  .faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+  .faq-a {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s;
+    font-size: 0.93rem;
+    color: #555;
+    line-height: 1.75;
+    padding: 0 24px;
+  }
+
+  .faq-item.open .faq-a { max-height: 300px; padding: 0 24px 20px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0d1f10;
+    color: rgba(255,255,255,0.55);
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 0.82rem;
+    line-height: 1.8;
+  }
+
+  footer strong { color: var(--gold); }
+
+  /* ── STICKY CTA BAR ── */
+  .sticky-bar {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(90deg, var(--deep-green), #1a3d24);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    z-index: 999;
+    box-shadow: 0 -4px 30px rgba(0,0,0,0.3);
+    flex-wrap: wrap;
+  }
+
+  .sticky-text {
+    color: #fff;
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+
+  .sticky-text span { color: var(--gold); }
+
+  .sticky-btn {
+    background: linear-gradient(135deg, var(--saffron), #e84e00);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 12px 30px;
+    border-radius: 40px;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(255,107,0,0.45);
+    white-space: nowrap;
+    transition: transform 0.2s;
+  }
+
+  .sticky-btn:hover { transform: scale(1.04); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50%       { transform: translateY(-18px) rotate(10deg); }
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%       { transform: translateX(-50%) translateY(8px); }
+  }
+
+  @keyframes ring {
+    0%, 100% { transform: rotate(0deg); }
+    20%       { transform: rotate(-15deg); }
+    40%       { transform: rotate(15deg); }
+    60%       { transform: rotate(-10deg); }
+    80%       { transform: rotate(10deg); }
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(100vw); }
+    to   { transform: translateX(-100%); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 720px) {
+    .origin-grid     { grid-template-columns: 1fr; gap: 30px; }
+    .exclusive-box   { grid-template-columns: 1fr; padding: 36px 24px; }
+    .steps::before   { left: 28px; }
+    .step-num        { min-width: 56px; height: 56px; font-size: 1.1rem; }
+    .sticky-bar      { gap: 10px; padding: 12px 14px; }
+    .sticky-text     { font-size: 0.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <!-- floating leaves SVG -->
+  <svg class="leaf" viewBox="0 0 100 100" fill="none"><ellipse cx="50" cy="50" rx="30" ry="48" fill="#4CAF50" transform="rotate(30 50 50)"/></svg>
+  <svg class="leaf" viewBox="0 0 100 100" fill="none"><ellipse cx="50" cy="50" rx="26" ry="42" fill="#81C784" transform="rotate(-20 50 50)"/></svg>
+  <svg class="leaf" viewBox="0 0 100 100" fill="none"><ellipse cx="50" cy="50" rx="28" ry="45" fill="#66BB6A" transform="rotate(15 50 50)"/></svg>
+  <svg class="leaf" viewBox="0 0 100 100" fill="none"><ellipse cx="50" cy="50" rx="24" ry="40" fill="#4CAF50" transform="rotate(-35 50 50)"/></svg>
+
+  <div class="hero-badge">🌿 1947 से आजमाया हुआ — 78 साल का विश्वास</div>
+  <h1>Sugar <span>Saar</span></h1>
+  <div class="hero-sub">Diabetes से मिलेगी असली आज़ादी — पहले Dose से ही</div>
+  <div class="hero-tagline">7 दुर्लभ जड़ी-बूटियों का वह Formula जो Medical Industry छुपाना चाहती है</div>
+  <a href="tel:+911234567890" class="hero-cta">📞 अभी Call करें — FREE Consultation</a>
+  <div class="hero-note">⚡ सीधा Ashram से आपके घर तक · Medical Store पर उपलब्ध नहीं</div>
+
+  <div class="scroll-indicator">नीचे देखें</div>
+</section>
+
+<!-- TICKER -->
+<div class="strip">
+  <span class="strip-inner">
+    ✅ 78 साल पुराना Formula &nbsp;|&nbsp; 🌿 100% Natural Herbs &nbsp;|&nbsp; ⚡ पहले Dose से असर &nbsp;|&nbsp; 🏠 घर पर Delivery &nbsp;|&nbsp; 📞 Free Expert Consultation &nbsp;|&nbsp; ✅ Doctors, Celebrities & Politicians का भरोसा &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    ✅ 78 साल पुराना Formula &nbsp;|&nbsp; 🌿 100% Natural Herbs &nbsp;|&nbsp; ⚡ पहले Dose से असर &nbsp;|&nbsp; 🏠 घर पर Delivery &nbsp;|&nbsp; 📞 Free Expert Consultation &nbsp;|&nbsp; ✅ Doctors, Celebrities & Politicians का भरोसा
+  </span>
+</div>
+
+<!-- ORIGIN STORY -->
+<section class="origin">
+  <div class="container">
+    <div class="origin-grid">
+      <div>
+        <div class="section-label">इतिहास की कहानी</div>
+        <h2 class="section-title">जब देश को मिली <span>आज़ादी</span>,<br>तभी बना Sugar Saar</h2>
+        <p class="section-body">
+          सन् <strong>1947</strong> — जब हमारा भारत अंग्रेज़ों की गुलामी से आज़ाद हुआ, उसी ऐतिहासिक साल में एक और क्रांति हुई।
+          <br><br>
+          Ayurved के महान Vaidyas ने <strong>7 दुर्लभ जड़ी-बूटियों</strong> का एक ऐसा Formula तैयार किया जो Diabetes (Sugar) को जड़ से reverse करने की ताकत रखता है।
+          <br><br>
+          इन <strong>78 सालों में</strong> जितने भी लोगों ने Sugar Saar का इस्तेमाल किया, उनका <strong>sugar level पूरी तरह control</strong> में आ गया।
+        </p>
+        <div class="quote-box">
+          "England की महारानी से लेकर America के पूर्व राष्ट्रपति तक — दुनिया भर के Elites का Secret Formula अब आपके घर पर।"
+        </div>
+      </div>
+      <div class="origin-visual">
+        <div class="year-badge">
+          1947
+          <small>Since Independence</small>
+        </div>
+        <div class="flag-stripe">
+          <div class="flag-saffron"></div>
+          <div class="flag-white"></div>
+          <div class="flag-green"></div>
+        </div>
+        <div style="text-align:center; margin-top: 20px;">
+          <div style="font-size:3.5rem;">🏆</div>
+          <div style="font-weight:700; color: var(--deep-green); font-size:1rem;">World-Renowned Formula</div>
+          <div style="color:#888; font-size:0.82rem;">Trusted across 20+ countries</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INGREDIENTS -->
+<section class="ingredients">
+  <div class="container">
+    <div class="section-label">Pure Ayurvedic Formulation</div>
+    <h2 class="section-title" style="color:#fff;">7 दुर्लभ जड़ी-बूटियाँ,<br><span>एक कमाल का Formula</span></h2>
+    <p class="section-body" style="color:rgba(255,255,255,0.75);">प्रकृति की सबसे शक्तिशाली जड़ी-बूटियों से बना Sugar Saar Blood Sugar को Naturally control करता है।</p>
+
+    <div class="herb-grid">
+      <div class="herb-card">
+        <div class="herb-icon">🌱</div>
+        <div class="herb-name">करेला Extract</div>
+        <div class="herb-desc">Insulin sensitivity बढ़ाता है और blood glucose को naturally कम करता है।</div>
+      </div>
+      <div class="herb-card">
+        <div class="herb-icon">🍃</div>
+        <div class="herb-name">मेथी</div>
+        <div class="herb-desc">Sugar absorption को slow करके post-meal spikes रोकता है।</div>
+      </div>
+      <div class="herb-card">
+        <div class="herb-icon">🌿</div>
+        <div class="herb-name">गुड़मार</div>
+        <div class="herb-desc">"Sugar Destroyer" — pancreas की beta cells को regenerate करता है।</div>
+      </div>
+      <div class="herb-card">
+        <div class="herb-icon">🌾</div>
+        <div class="herb-name">नीम पत्ती</div>
+        <div class="herb-desc">Detox करता है और anti-diabetic properties से भरपूर है।</div>
+      </div>
+      <div class="herb-card">
+        <div class="herb-icon">🌸</div>
+        <div class="herb-name">जामुन बीज</div>
+        <div class="herb-desc">HbA1c level घटाता है, सदियों पुराना Ayurvedic उपाय।</div>
+      </div>
+      <div class="herb-card">
+        <div class="herb-icon">🪴</div>
+        <div class="herb-name">विजयसार</div>
+        <div class="herb-desc">Liver function सुधारता है और glucose metabolism को regulate करता है।</div>
+      </div>
+      <div class="herb-card">
+        <div class="herb-icon">⭐</div>
+        <div class="herb-name">दालचीनी</div>
+        <div class="herb-desc">Insulin resistance कम करके cells को glucose absorb करने देता है।</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <div class="container">
+    <div class="section-label">Simple Process</div>
+    <h2 class="section-title">Sugar Saar कैसे काम करता है?</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>पहले Dose से — Sugar Control शुरू</h3>
+          <p>Sugar Saar की 7 जड़ी-बूटियाँ तुरंत Blood Stream में काम शुरू करती हैं और Glucose Absorption को regulate करती हैं।</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>पहले हफ्ते में — HbA1c में सुधार</h3>
+          <p>Regular use से Pancreas की Beta Cells को नई शक्ति मिलती है और Insulin production naturally बेहतर होती है।</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>कुछ ही हफ्तों में — Diabetes Reverse</h3>
+          <p>Consistent use से Sugar Level stable होता है, थकान दूर होती है, और आप पूरी तरह healthy life जीना शुरू करते हैं।</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h3>Long-Term — Medicine-Free Life</h3>
+          <p>Thousands of users report करते हैं कि वे अपनी daily diabetes medication को काफी हद तक reduce कर पाए।</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CELEBRITY TRUST -->
+<section class="celeb-section">
+  <div class="container">
+    <div class="section-label">World-Class Trust</div>
+    <h2 class="section-title">दुनिया भर के <span>बड़े नाम</span> करते हैं भरोसा</h2>
+    <p style="color:#666; font-size:1rem; margin-bottom:10px;">Doctors, Celebrities और Politicians का preferred Diabetes solution</p>
+    <div class="celeb-badges">
+      <div class="celeb-badge">👑 Royal Family — England</div>
+      <div class="celeb-badge">🇺🇸 Former US President</div>
+      <div class="celeb-badge">🩺 Leading Ayurvedic Doctors</div>
+      <div class="celeb-badge">🏛️ Top Indian Politicians</div>
+      <div class="celeb-badge">🎬 Bollywood Celebrities</div>
+      <div class="celeb-badge">⚽ International Athletes</div>
+    </div>
+    <p style="margin-top:28px; font-size:0.85rem; color:#999; font-style:italic;">* यह formula इतना powerful है कि Medical Industry नहीं चाहती ये आम लोगों तक पहुँचे।</p>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="proof">
+  <div class="container">
+    <div class="section-label">Real Results</div>
+    <h2 class="section-title"><span>लाखों लोगों</span> की ज़िंदगी बदली</h2>
+
+    <div class="trust-row">
+      <div class="trust-item">
+        <div class="trust-num">78+</div>
+        <div class="trust-label">सालों का अनुभव</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">5L+</div>
+        <div class="trust-label">Satisfied Users</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">20+</div>
+        <div class="trust-label">देशों में भरोसा</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">7</div>
+        <div class="trust-label">दुर्लभ जड़ी-बूटियाँ</div>
+      </div>
+    </div>
+
+    <div class="testimonials">
+      <div class="tcard">
+        <p class="tcard-text">"मेरी sugar 380 थी। 3 हफ्ते में 130 आ गई। Doctor भी हैरान हैं। Sugar Saar ने मेरी ज़िंदगी बदल दी।"</p>
+        <div class="tcard-author">
+          <div class="tcard-avatar">R</div>
+          <div>
+            <div class="tcard-name">Ramesh Gupta</div>
+            <div class="tcard-loc">Lucknow, UP</div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="tcard">
+        <p class="tcard-text">"10 साल से insulin ले रही थी। Sugar Saar शुरू किया, 6 हफ्ते में doctor ने खुद dose आधा कर दिया।"</p>
+        <div class="tcard-author">
+          <div class="tcard-avatar">S</div>
+          <div>
+            <div class="tcard-name">Savita Sharma</div>
+            <div class="tcard-loc">Jaipur, Rajasthan</div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="tcard">
+        <p class="tcard-text">"पहले रोज़ 2 tablets खाता था। अब एक महीने से Sugar Saar पर हूँ और fasting sugar 96 है।"</p>
+        <div class="tcard-author">
+          <div class="tcard-avatar">M</div>
+          <div>
+            <div class="tcard-name">Mahesh Patel</div>
+            <div class="tcard-loc">Surat, Gujarat</div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>अभी Call करें —<br>Free Health Expert से बात करें!</h2>
+    <p>Sugar Saar सीधा Ashram से आपके घर मंगाएं। Limited Stock उपलब्ध है।</p>
+    <a href="tel:+911234567890" class="cta-phone">
+      <span class="phone-icon">📞</span>
+      +91 XXXXX XXXXX
+    </a>
+    <div class="cta-note">🕐 सुबह 8 बजे से रात 9 बजे तक Helpline Available · Call Free है</div>
+  </div>
+</section>
+
+<!-- WHY EXCLUSIVE -->
+<section class="exclusive">
+  <div class="container">
+    <div class="exclusive-box">
+      <div>
+        <h2>Medical Store पर क्यों नहीं मिलता Sugar Saar?</h2>
+        <p>Sugar Saar की quality और potency बनाए रखने के लिए इसे सीधे <strong>Ashram में तैयार</strong> किया जाता है और आपके घर तक भेजा जाता है। किसी भी middleman या cold-chain break से बचने के लिए यही एकमात्र सही तरीका है।</p>
+      </div>
+      <div class="exclusive-points">
+        <div class="exc-point">
+          <div class="exc-icon">🏺</div>
+          <div class="exc-text">
+            <strong>Ashram-Fresh Quality</strong>
+            <span>Traditional methods से तैयार, हर batch quality-checked</span>
+          </div>
+        </div>
+        <div class="exc-point">
+          <div class="exc-icon">🚚</div>
+          <div class="exc-text">
+            <strong>Direct Home Delivery</strong>
+            <span>Pan-India delivery, 3–5 working days में doorstep पर</span>
+          </div>
+        </div>
+        <div class="exc-point">
+          <div class="exc-icon">💰</div>
+          <div class="exc-text">
+            <strong>Affordable Price</strong>
+            <span>Hospital bills का एक fraction — हज़ारों बचाएं</span>
+          </div>
+        </div>
+        <div class="exc-point">
+          <div class="exc-icon">🛡️</div>
+          <div class="exc-text">
+            <strong>100% Authentic</strong>
+            <span>Duplicate से बचें — सिर्फ official helpline से order करें</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <div class="section-label">आपके सवाल</div>
+    <h2 class="section-title">अक्सर पूछे जाने वाले <span>सवाल</span></h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Sugar Saar कितने दिनों में असर दिखाता है?
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-a">पहले dose से ही sugar level control होना शुरू हो जाता है। Regular use से 2–4 हफ्तों में significant improvement देखी जाती है। Individual results vary कर सकते हैं।</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          क्या मैं अपनी current diabetes medicine साथ में ले सकता/सकती हूँ?
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-a">हाँ। Sugar Saar Ayurvedic है और current medicines के साथ safe है। लेकिन कोई भी change अपने doctor से consult करके करें। हमारे Health Experts भी guide करेंगे।</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Sugar Saar medical store पर क्यों नहीं मिलता?
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-a">Quality और authenticity maintain रखने के लिए Sugar Saar सीधे Ashram से आपके घर भेजा जाता है। इससे कोई भी duplicate product market में नहीं आता और आपको सिर्फ genuine formula मिलता है।</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Type 1 और Type 2 दोनों Diabetes में काम करता है?
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-a">Sugar Saar primarily Type 2 Diabetes के लिए highly effective है। Type 1 में भी supportive role play करता है। Call करके हमारे experts से अपनी specific situation discuss करें।</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Delivery कितने दिनों में होती है और COD available है?
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-a">Pan-India delivery 3–5 working days में होती है। Cash on Delivery (COD) available है — पहले product receive करें, फिर payment करें।</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER CTA -->
+<section class="cta-section" style="padding: 60px 20px;">
+  <div class="container">
+    <h2 style="font-size: clamp(1.6rem, 5vw, 2.8rem);">हज़ारों रुपए के इलाज से थक गए हैं?</h2>
+    <p>अब एक call करके Natural, Affordable और Proven solution घर मंगाएं।</p>
+    <a href="tel:+911234567890" class="cta-phone">
+      <span class="phone-icon">📞</span>
+      अभी Call करें
+    </a>
+    <div class="cta-note">Sugar Saar — 1947 से आपकी सेहत का साथी 🌿</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Sugar Saar</strong> — Pure Ayurvedic Diabetes Formula since 1947<br>
+  यह product Ayurvedic herbs से बना है। Results individual vary कर सकते हैं।<br>
+  किसी भी medical decision से पहले अपने doctor से ज़रूर consult करें।<br><br>
+  © 2025 Sugar Saar. All Rights Reserved.
+</footer>
+
+<!-- STICKY BAR -->
+<div class="sticky-bar">
+  <div class="sticky-text">🌿 Sugar Saar — <span>पहले Dose से असर</span> · Limited Stock!</div>
+  <a href="tel:+911234567890" class="sticky-btn">📞 अभी Call करें — Free!</a>
+</div>
+
+<script>
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+
+  // Scroll-based fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.herb-card, .tcard, .step, .exc-point').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
